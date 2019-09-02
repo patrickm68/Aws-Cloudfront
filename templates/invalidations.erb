@@ -1,0 +1,11 @@
+<% if @invalidations.empty? %>
+There are no invalidations.
+<% else %>
+<% @invalidations.each do |invalidation| %>
+--------------------------------------------------------
+ID: <%= invalidation.id %>
+CreatedAt: <%= invalidation.create_time %>
+Status: <%= invalidation.status %>
+<% end %>
+--------------------------------------------------------
+<% end %>

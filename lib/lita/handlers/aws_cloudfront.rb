@@ -10,11 +10,14 @@ module Lita
       end
 
       invalidations_help = { 'cloudfront invalidations' => 'List cloudfront invalidations' }
-      route(/cloudfront invalidations\s+([a-z0-9]+)\s*$/, help: invalidations_help) do |response|
+      route(/cloudfront invalidations\s+([a-zA-Z0-9]+)\s*$/, help: invalidations_help) do |response|
+        distribution_id = response.matches.first[0]
+        invalidations = client.list_invalidations(distribution_id: distribution_id).invalidation_list.items
+        response.reply(render_template('invalidations', invalidations: invalidations))
       end
 
       invalidate_help = { 'cloudfront invalidate ${distribution_id} ${path}' => 'Invalidate distribution for path' }
-      route(/cloudfront invalidate\s+([a-z0-9]+)\s+(.+)\s*$/, help: invalidate_help) do |response|
+      route(/cloudfront invalidate\s+([a-zA-Z0-9]+)\s+(.+)\s*$/, help: invalidate_help) do |response|
       end
 
       private def client
