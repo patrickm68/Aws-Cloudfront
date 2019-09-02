@@ -16,7 +16,21 @@ gem "lita-aws-cloudfront"
 ```
 
 ## Configuration
+Set environment variables below.
 
+```
+AWS_REGION=us-east-1
+AWS_ACCESS_KEY_ID=xxxx
+AWS_SECRET_ACCESS_KEY=xxxx
+```
+
+or use config
+
+```
+Lita.config.handlers.aws_cloudfront.aws_region = 'us-east-1'
+Lita.config.handlers.aws_cloudfront.aws_access_key_id = 'xxxx'
+Lita.config.handlers.aws_cloudfront.aws_secret_access_key = 'xxxx'
+```
 
 ## Usage
 

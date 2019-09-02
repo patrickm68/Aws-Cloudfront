@@ -3,6 +3,10 @@ require 'aws-sdk-cloudfront'
 module Lita
   module Handlers
     class AwsCloudfront < Handler
+      config :aws_region
+      config :aws_access_key_id
+      config :aws_secret_access_key
+
       distributions_help = { 'cloudfront distributions' => 'List cloudfront distributions' }
       route(/cloudfront distributions$/, help: distributions_help) do |response|
         distributions = client.list_distributions.distribution_list.items
@@ -45,9 +49,9 @@ module Lita
 
       private def client
         Aws::CloudFront::Client.new(
-          region: ENV['AWS_REGION'],
-          access_key_id: ENV['AWS_ACCESS_KEY_ID'],
-          secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
+          region: config.aws_region || ENV['AWS_REGION'],
+          access_key_id: config.aws_access_key_id || ENV['AWS_ACCESS_KEY_ID'],
+          secret_access_key: config.aws_secret_access_key || ENV['AWS_SECRET_ACCESS_KEY']
         )
       end
 
