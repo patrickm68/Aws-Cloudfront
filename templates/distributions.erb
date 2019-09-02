@@ -1,0 +1,11 @@
+<% if @distributions.empty? %>
+There are no invalidations.
+<% else %>
+<% @distributions.each do |distribution| %>
+--------------------------------------------------------
+ID: <%= distribution.id %>
+DomainName: <%= distribution.domain_name %>
+Origins: <%= distribution.origins.items.map(&:domain_name).join(', ') %>
+<% end %>
+--------------------------------------------------------
+<% end %>
