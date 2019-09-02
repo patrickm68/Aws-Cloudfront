@@ -7,6 +7,9 @@ module Lita
       route(/cloudfront distributions$/, help: distributions_help) do |response|
         distributions = client.list_distributions.distribution_list.items
         response.reply(render_template('distributions', distributions: distributions))
+      rescue StandardError => e
+        response.reply ':rage: Error has occurred'
+        response.reply e.to_s
       end
 
       invalidations_help = { 'cloudfront invalidations' => 'List cloudfront invalidations' }
@@ -14,6 +17,9 @@ module Lita
         distribution_id = response.matches.first[0]
         invalidations = client.list_invalidations(distribution_id: distribution_id).invalidation_list.items
         response.reply(render_template('invalidations', invalidations: invalidations))
+      rescue StandardError => e
+        response.reply ':rage: Error has occurred'
+        response.reply e.to_s
       end
 
       invalidate_help = { 'cloudfront invalidate ${distribution_id} ${path}' => 'Invalidate distribution for path' }
@@ -32,6 +38,9 @@ module Lita
           }
         ).invalidation
         response.reply("Invalidation #{invalidation.id} for #{path} is created.")
+      rescue StandardError => e
+        response.reply ':rage: Error has occurred'
+        response.reply e.to_s
       end
 
       private def client
