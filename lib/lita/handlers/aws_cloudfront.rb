@@ -17,7 +17,21 @@ module Lita
       end
 
       invalidate_help = { 'cloudfront invalidate ${distribution_id} ${path}' => 'Invalidate distribution for path' }
-      route(/cloudfront invalidate\s+([a-zA-Z0-9]+)\s+(.+)\s*$/, help: invalidate_help) do |response|
+      route(/cloudfront invalidate\s+([a-zA-Z0-9]+)\s*(.*)$/, help: invalidate_help) do |response|
+        distribution_id = response.matches.first[0]
+        path = response.matches.first[1]&.gsub(/\s/, '')
+        path =  '/*' if path.nil? || path.empty?
+        invalidation = client.create_invalidation(
+          distribution_id: distribution_id,
+          invalidation_batch: {
+            paths: {
+              quantity: 1,
+              items: [path]
+            },
+            caller_reference: SecureRandom.uuid
+          }
+        ).invalidation
+        response.reply("Invalidation #{invalidation.id} for #{path} is created.")
       end
 
       private def client
