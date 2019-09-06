@@ -1,6 +1,8 @@
-require "spec_helper"
+# frozen_string_literal: true
 
-describe Lita::Handlers::AwsCloudfront, lita_handler: true do
+require 'spec_helper'
+
+describe Lita::Handlers::AwsCloudfront, lita_handler: true do # rubocop:disable Metrics/BlockLength
   describe 'Routing' do
     it { is_expected.to route('cloudfront distributions') }
     it { is_expected.to route('cloudfront invalidations dist') }
@@ -9,14 +11,14 @@ describe Lita::Handlers::AwsCloudfront, lita_handler: true do
     it { is_expected.to route('cloudfront invalidate dist /images/*') }
   end
 
-  describe 'Behavior' do
+  describe 'Behavior' do # rubocop:disable Metrics/BlockLength
     let(:reply_message) {}
 
     subject { replies }
 
     shared_examples('a command that replies message') { it { is_expected.to include reply_message } }
 
-    describe 'distributions command' do
+    describe 'distributions command' do # rubocop:disable Metrics/BlockLength
       let(:cloudfront_response) {}
 
       before do
@@ -74,7 +76,7 @@ describe Lita::Handlers::AwsCloudfront, lita_handler: true do
       end
     end
 
-    describe 'invalidations command' do
+    describe 'invalidations command' do # rubocop:disable Metrics/BlockLength
       let(:cloudfront_response) {}
 
       before do
