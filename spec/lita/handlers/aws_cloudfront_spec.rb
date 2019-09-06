@@ -131,6 +131,16 @@ describe Lita::Handlers::AwsCloudfront, lita_handler: true do
     end
 
     describe 'invalidate command' do
+      let(:cloudfront_response) { OpenStruct.new(id: 'ID_STRING') }
+      let(:reply_message) { 'Invalidation ID_STRING for /* is created.' }
+
+      before do
+        allow_any_instance_of(Aws::CloudFront::Client)
+          .to receive_message_chain(:create_invalidation, :invalidation) { cloudfront_response }
+        send_message 'cloudfront invalidate dist'
+      end
+
+      it_behaves_like 'a command that replies message'
     end
   end
 end
