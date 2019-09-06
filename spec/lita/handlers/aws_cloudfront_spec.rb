@@ -1,5 +1,4 @@
-# frozen_string_literal: true
-
+# rubocop:disable Style/FrozenStringLiteralComment
 require 'spec_helper'
 
 describe Lita::Handlers::AwsCloudfront, lita_handler: true do # rubocop:disable Metrics/BlockLength
@@ -146,3 +145,4 @@ describe Lita::Handlers::AwsCloudfront, lita_handler: true do # rubocop:disable 
     end
   end
 end
+# rubocop:enable Style/FrozenStringLiteralComment
