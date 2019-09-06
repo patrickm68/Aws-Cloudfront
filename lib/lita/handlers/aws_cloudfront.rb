@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'aws-sdk-cloudfront'
 
 module Lita
@@ -30,7 +32,7 @@ module Lita
       route(/cloudfront invalidate\s+([a-zA-Z0-9]+)\s*(.*)$/, help: invalidate_help) do |response|
         distribution_id = response.matches.first[0]
         path = response.matches.first[1]&.gsub(/\s/, '')
-        path =  '/*' if path.nil? || path.empty?
+        path = '/*' if path.nil? || path.empty?
         invalidation = client.create_invalidation(
           distribution_id: distribution_id,
           invalidation_batch: {

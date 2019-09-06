@@ -1,4 +1,6 @@
-require "spec_helper"
+# frozen_string_literal: true
+
+require 'spec_helper'
 
 describe Lita::Handlers::AwsCloudfront, lita_handler: true do
   describe 'Routing' do
