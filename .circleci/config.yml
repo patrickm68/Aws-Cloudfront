@@ -50,7 +50,12 @@ jobs:
       - *restore_bundle_cache
       - *update_bundler
       - *bundle_install
-      - run: bundle exec rspec
+      - run:
+          environment:
+              RAILS_ENV: test
+              COVERAGE: true
+              CODECOV_TOKEN: c8c31078-b811-4301-bd35-c36e14cfc075
+          command: bundle exec rspec
 workflows:
   version: 2.1
   rspec:
