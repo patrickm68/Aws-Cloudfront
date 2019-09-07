@@ -73,6 +73,16 @@ describe Lita::Handlers::AwsCloudfront, lita_handler: true do # rubocop:disable 
 
         it_behaves_like 'a command that replies message'
       end
+
+      context 'when something raises error' do
+        before do
+          allow_any_instance_of(Aws::CloudFront::Client)
+            .to receive_message_chain(:list_distributions, :distribution_list, :items).and_raise(StandardError)
+        end
+
+        let(:reply_message) { ':rage: Error has occurred' }
+        it_behaves_like 'a command that replies message'
+      end
     end
 
     describe 'invalidations command' do # rubocop:disable Metrics/BlockLength
@@ -129,6 +139,16 @@ describe Lita::Handlers::AwsCloudfront, lita_handler: true do # rubocop:disable 
 
         it_behaves_like 'a command that replies message'
       end
+
+      context 'when something raises error' do
+        before do
+          allow_any_instance_of(Aws::CloudFront::Client)
+            .to receive_message_chain(:list_invalidations, :invalidation_list, :items).and_raise(StandardError)
+        end
+
+        let(:reply_message) { ':rage: Error has occurred' }
+        it_behaves_like 'a command that replies message'
+      end
     end
 
     describe 'invalidate command' do
@@ -142,6 +162,17 @@ describe Lita::Handlers::AwsCloudfront, lita_handler: true do # rubocop:disable 
       end
 
       it_behaves_like 'a command that replies message'
+
+      context 'when something raises error' do
+        before do
+          allow_any_instance_of(Aws::CloudFront::Client)
+            .to receive_message_chain(:create_invalidation, :invalidation).and_raise(StandardError)
+          send_message 'cloudfront invalidate dist'
+        end
+
+        let(:reply_message) { ':rage: Error has occurred' }
+        it_behaves_like 'a command that replies message'
+      end
     end
   end
 end
