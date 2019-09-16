@@ -1,5 +1,6 @@
 # lita-aws-cloudfront
 [![Gem Version](https://badge.fury.io/rb/lita-aws-cloudfront.svg)](https://badge.fury.io/rb/lita-aws-cloudfront)
+[![Circle CI](https://circleci.com/gh/unhappychoice/lita-aws-cloudfront.svg?style=shield)](https://circleci.com/gh/unhappychoice/lita-aws-cloudfront)
 [![Code Climate](https://codeclimate.com/github/unhappychoice/lita-aws-cloudfront/badges/gpa.svg)](https://codeclimate.com/github/unhappychoice/lita-aws-cloudfront)
 [![codecov](https://codecov.io/gh/unhappychoice/lita-aws-cloudfront/branch/master/graph/badge.svg)](https://codecov.io/gh/unhappychoice/lita-aws-cloudfront)
 [![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/github/unhappychoice/lita-aws-cloudfront.svg)](https://libraries.io/github/unhappychoice/lita-aws-cloudfront)
