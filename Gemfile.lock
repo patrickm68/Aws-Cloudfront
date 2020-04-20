@@ -21,7 +21,7 @@ GEM
       jmespath (~> 1.0)
     aws-sigv4 (1.1.1)
       aws-eventstream (~> 1.0, >= 1.0.2)
-    byebug (11.1.1)
+    byebug (11.1.2)
     codecov (0.1.16)
       json
       simplecov
