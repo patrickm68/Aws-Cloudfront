@@ -3,6 +3,7 @@
 Gem::Specification.new do |spec|
   spec.name          = 'lita-aws-cloudfront'
   spec.version       = '0.1.0'
+  spec.required_ruby_version = '>= 2.5'
   spec.authors       = ['Yuji Ueki']
   spec.email         = ['unhappychoice@gmail.com']
   spec.description   = 'Lita handler to manage cloud front'
