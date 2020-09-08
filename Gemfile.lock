@@ -102,7 +102,7 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     rb-readline (0.5.5)
-    redis (4.2.1)
+    redis (4.2.2)
     redis-namespace (1.8.0)
       redis (>= 3.0.4)
     regexp_parser (1.7.1)
