@@ -105,7 +105,7 @@ GEM
     redis (4.2.2)
     redis-namespace (1.8.0)
       redis (>= 3.0.4)
-    regexp_parser (1.8.0)
+    regexp_parser (1.8.1)
     rexml (3.2.4)
     rspec (3.9.0)
       rspec-core (~> 3.9.0)
