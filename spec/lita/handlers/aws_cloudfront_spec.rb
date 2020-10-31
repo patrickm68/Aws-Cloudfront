@@ -11,14 +11,14 @@ describe Lita::Handlers::AwsCloudfront, lita_handler: true do # rubocop:disable 
   end
 
   describe 'Behavior' do # rubocop:disable Metrics/BlockLength
-    let(:reply_message) {}
+    let(:reply_message) { nil }
 
     subject { replies }
 
     shared_examples('a command that replies message') { it { is_expected.to include reply_message } }
 
     describe 'distributions command' do # rubocop:disable Metrics/BlockLength
-      let(:cloudfront_response) {}
+      let(:cloudfront_response) { nil }
 
       before do
         allow_any_instance_of(Aws::CloudFront::Client)
@@ -86,7 +86,7 @@ describe Lita::Handlers::AwsCloudfront, lita_handler: true do # rubocop:disable 
     end
 
     describe 'invalidations command' do # rubocop:disable Metrics/BlockLength
-      let(:cloudfront_response) {}
+      let(:cloudfront_response) { nil }
 
       before do
         allow_any_instance_of(Aws::CloudFront::Client)
