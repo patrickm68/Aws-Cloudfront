@@ -22,7 +22,7 @@ wait_redis_service: &wait_redis_service
 jobs:
   build:
     docker:
-      - image: circleci/ruby
+      - image: circleci/ruby:2.7.2
     steps:
       - checkout
       - *restore_bundle_cache
@@ -34,7 +34,7 @@ jobs:
             - vendor/bundle
   rubocop:
     docker:
-      - image: circleci/ruby
+      - image: circleci/ruby:2.7.2
     steps:
       - checkout
       - *restore_bundle_cache
@@ -43,7 +43,7 @@ jobs:
       - run: bundle exec rubocop
   rspec:
     docker:
-      - image: circleci/ruby
+      - image: circleci/ruby:2.7.2
       - image: redis
     steps:
       - checkout
