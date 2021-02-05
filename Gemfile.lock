@@ -104,7 +104,7 @@ GEM
       ffi (~> 1.0)
     rb-readline (0.5.5)
     redis (4.2.5)
-    redis-namespace (1.8.0)
+    redis-namespace (1.8.1)
       redis (>= 3.0.4)
     regexp_parser (2.0.3)
     rexml (3.2.4)
