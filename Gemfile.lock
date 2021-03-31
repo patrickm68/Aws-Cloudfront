@@ -33,7 +33,7 @@ GEM
       multipart-post (>= 1.2, < 3)
       ruby2_keywords
     faraday-net_http (1.0.1)
-    ffi (1.14.2)
+    ffi (1.15.0)
     formatador (0.2.5)
     guard (2.16.2)
       formatador (>= 0.2.4)
@@ -59,7 +59,7 @@ GEM
       concurrent-ruby (~> 1.0)
     ice_nine (0.11.2)
     jmespath (1.4.0)
-    listen (3.4.1)
+    listen (3.5.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     lita (4.7.1)
