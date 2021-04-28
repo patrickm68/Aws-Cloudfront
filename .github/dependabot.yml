@@ -1,0 +1,59 @@
+version: 2
+updates:
+- package-ecosystem: bundler
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "12:00"
+    timezone: Asia/Tokyo
+  open-pull-requests-limit: 20
+  reviewers:
+  - unhappychoice
+  allow:
+  - dependency-type: direct
+  - dependency-type: indirect
+  ignore:
+  - dependency-name: codecov
+    versions:
+    - ">= 0.2.14.a, < 0.2.15"
+  - dependency-name: aws-partitions
+    versions:
+    - 1.423.0
+    - 1.425.0
+    - 1.426.0
+    - 1.428.0
+    - 1.429.0
+    - 1.430.0
+    - 1.431.0
+    - 1.431.1
+    - 1.432.0
+    - 1.433.0
+    - 1.434.0
+    - 1.435.0
+    - 1.436.0
+    - 1.437.0
+    - 1.440.0
+    - 1.441.0
+    - 1.442.0
+    - 1.443.0
+    - 1.444.0
+    - 1.445.0
+    - 1.446.0
+    - 1.447.0
+  - dependency-name: rubocop
+    versions:
+    - 1.12.1
+  - dependency-name: aws-sdk-core
+    versions:
+    - 3.113.0
+    - 3.113.1
+  - dependency-name: listen
+    versions:
+    - 3.5.0
+  - dependency-name: codecov
+    versions:
+    - 0.5.0
+  - dependency-name: regexp_parser
+    versions:
+    - 2.1.0
+    - 2.1.1
