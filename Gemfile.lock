@@ -10,11 +10,11 @@ GEM
   specs:
     ast (2.4.2)
     aws-eventstream (1.2.0)
-    aws-partitions (1.533.0)
+    aws-partitions (1.534.0)
     aws-sdk-cloudfront (1.59.0)
       aws-sdk-core (~> 3, >= 3.122.0)
       aws-sigv4 (~> 1.1)
-    aws-sdk-core (3.122.1)
+    aws-sdk-core (3.123.0)
       aws-eventstream (~> 1, >= 1.0.2)
       aws-partitions (~> 1, >= 1.525.0)
       aws-sigv4 (~> 1.1)
