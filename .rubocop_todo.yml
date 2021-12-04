@@ -18,3 +18,6 @@ Naming/FileName:
 # SupportedStyles: inline, group
 Style/AccessModifierDeclarations:
   EnforcedStyle: inline
+
+Style/OpenStructUse:
+  Enabled: false
